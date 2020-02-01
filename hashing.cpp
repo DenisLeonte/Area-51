@@ -61,13 +61,5 @@ int main()
     {
         inserare(a);
     }
-    cout<<cautare(27627)<<endl;
-    stergere(27626);
-    cout<<cautare(27626)<<endl;
-    inserare(5698527);
-    cout<<cautare(5698527)<<endl;
-    stergere(5698527);
-    cout<<cautare(5698527)<<endl;
-
     return 0;
 }
