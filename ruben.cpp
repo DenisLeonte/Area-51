@@ -8,25 +8,29 @@ struct nod
     float nota;
     nod *urm;
 };
-nod *prim;
-void adaugf(string nume1,float n1)
-{
-    nod *nou= new nod;
-    nou->nume = nume1;
-    nou->nota = n1;
-    nou->urm=prim;
-    prim=nou;
-}
+nod *prim,*ultim;
+
 void citire()
 {
     int n;
     string nume;
     float nota;
-    f>>n;
-    for(int i=1; i<=n; i++)
+    while(f>>nume>>nota)
     {
-        f>>nume>>nota;
-        adaugf(nume,nota);
+        nod *n;
+        n = new nod;
+        n->nume = nume;
+        n->nota = nota;
+        n->urm = NULL;
+        if(prim==NULL)
+        {
+            prim = ultim = n;
+        }
+        else
+        {
+            ultim->urm = n;
+            ultim = n;
+        }
     }
 }
 void afis()
@@ -49,7 +53,7 @@ void sortare()
         p = p->urm;
     }
     sort(x.begin(),x.end());
-    for(auto &it:x)
+    for(auto it:x)
     {
         cout<<it<<endl;
     }
@@ -59,6 +63,7 @@ int main()
 {
     citire();
     afis();
+    cout<<endl;
     sortare();
     return 0;
 }
